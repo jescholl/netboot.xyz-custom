@@ -489,9 +489,10 @@ d-i finish-install/reboot_in_progress note
 # still a usable /target directory. You can chroot to /target and use it
 # directly, or use the apt-install and in-target commands to easily install
 # packages and run commands in the target system.
-d-i preseed/late_command string chroot /target                         ;\
-  mkdir /root/.ssh/                                                    ;\
-  chmod 0700 /root/.ssh/                                               ;\
-  curl https://github.com/jescholl.keys > /root/.ssh/authorized_keys   ;\
+d-i preseed/late_command string chroot /target                                ;\
+  mkdir /root/.ssh/                                                           ;\
+  chmod 0700 /root/.ssh/                                                      ;\
+  curl https://github.com/jescholl.keys > /root/.ssh/authorized_keys          ;\
+  sed -i '' 's#.*PermitRootLogin.*#PermitRootLogin yes#' /etc/ssh/sshd_config ;\
 
 #
