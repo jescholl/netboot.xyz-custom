@@ -442,7 +442,7 @@ d-i grub-installer/with_other_os boolean true
 # During installations from serial console, the regular virtual consoles
 # (VT1-VT6) are normally disabled in /etc/inittab. Uncomment the next
 # line to prevent this.
-#d-i finish-install/keep-consoles boolean true
+d-i finish-install/keep-consoles boolean true
 
 # Avoid that last message about the install being complete.
 d-i finish-install/reboot_in_progress note
@@ -493,6 +493,6 @@ d-i preseed/late_command string chroot /target                                ;\
   mkdir /root/.ssh/                                                           ;\
   chmod 0700 /root/.ssh/                                                      ;\
   curl https://github.com/jescholl.keys > /root/.ssh/authorized_keys          ;\
-  sed -i '' 's#.*PermitRootLogin.*#PermitRootLogin yes#' /etc/ssh/sshd_config ;\
+  sed -i 's#.*PermitRootLogin.*#PermitRootLogin yes#' /etc/ssh/sshd_config    ;\
 
 #
