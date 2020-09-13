@@ -1,0 +1,21 @@
+#!ipxe
+###
+### netboot.xyz-custom menu
+###
+
+set ubuntu_version focal
+
+set mirrorcfg mirror/suite=${ubuntu_version}
+set dir ${ubuntu_base_dir}/dists/${ubuntu_version}-updates/main/installer-${arch_a}/current/images/netboot/
+iseq ${ubuntu_version} focal && set dir ${ubuntu_base_dir}/dists/${ubuntu_version}/main/installer-${arch_a}/current/legacy-images/netboot/ ||
+
+set install_params auto=true priority=critical preseed/url=https://raw.githubusercontent.com/jescholl/netboot.xyz-custom/master/ubuntu.ipxe
+
+set dir ${dir}ubuntu-installer/${arch_a}
+imgfree
+kernel ${ubuntu_mirror}/${dir}/linux ${install_params} ${mirrorcfg} -- quiet ${params} initrd=initrd.gz ${cmdline}
+initrd ${ubuntu_mirror}/${dir}/initrd.gz
+echo
+echo MD5sums:
+md5sum linux initrd.gz
+boot

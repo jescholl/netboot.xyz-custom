@@ -3,10 +3,12 @@
 ### netboot.xyz-custom menu
 ###
 
-:start
-echo Hello world!
-sleep 10
-goto custom_exit
+:custom
+clear os
+menu OS
+item --gap Preseed OS
+item ubuntu
+choose os || goto custom_exit
+echo ${cls}
 
-:custom_exit
-exit 0
+chain https://raw.githubusercontent.com/jescholl/netboot.xyz-custom/master/${os}.ipxe || goto custom
