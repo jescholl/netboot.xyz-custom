@@ -22,5 +22,5 @@ kernel ${ubuntu_mirror}/${dir}/linux ${install_params} ${mirrorcfg} -- quiet ${p
 initrd ${ubuntu_mirror}/${dir}/initrd.gz
 echo
 echo MD5sums:
-md5sum linux initrd.gz
+md5sum linux initrd.gz ||
 boot
