@@ -3,6 +3,8 @@
 ### netboot.xyz-custom menu
 ###
 
+chain https://boot.netboot.xyz/boot.cfg
+
 set ubuntu_version focal
 
 set mirrorcfg mirror/suite=${ubuntu_version}
