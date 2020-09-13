@@ -14,7 +14,7 @@ set mirrorcfg mirror/suite=${ubuntu_version}
 set dir ${ubuntu_base_dir}/dists/${ubuntu_version}-updates/main/installer-${arch_a}/current/images/netboot/
 iseq ${ubuntu_version} focal && set dir ${ubuntu_base_dir}/dists/${ubuntu_version}/main/installer-${arch_a}/current/legacy-images/netboot/ ||
 
-set install_params auto=true priority=critical preseed/url=https://raw.githubusercontent.com/jescholl/netboot.xyz-custom/master/ubuntu.ipxe
+set install_params auto=true priority=critical preseed/url=https://raw.githubusercontent.com/jescholl/netboot.xyz-custom/master/ubuntu.preseed
 
 set dir ${dir}ubuntu-installer/${arch_a}
 imgfree
