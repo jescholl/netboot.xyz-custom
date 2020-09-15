@@ -404,6 +404,7 @@ popularity-contest popularity-contest/participate boolean false
 # too:
 #d-i lilo-installer/skip boolean true
 
+d-i grub-installer/timeout string 30
 
 # This is fairly safe to set, it makes grub install automatically to the MBR
 # if no other operating system is detected on the machine.
