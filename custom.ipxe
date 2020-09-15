@@ -10,11 +10,10 @@ item --gap Preseed OS
 item ubuntu Install ubuntu
 item --gap Other
 item netboot_xyz chain netboot.xyz
-choose --timeout 30 --default ubuntu os || goto custom_exit
+choose --timeout 30000 --default ubuntu os || goto netbootxyz
 echo ${cls}
 
-iseq ${os} netboot_xyz && goto netbootxyz
-
+iseq ${os} netboot_xyz && goto netbootxyz ||
 chain https://raw.githubusercontent.com/jescholl/netboot.xyz-custom/master/${os}.ipxe ||
 
 :netbootxyz
