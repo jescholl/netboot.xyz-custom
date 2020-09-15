@@ -5,10 +5,13 @@
 
 chain https://boot.netboot.xyz/boot.cfg
 
-isset ${arch} && goto :menu
+isset ${arch} && goto :skip_arch_detect ||
 cpuid --ext 29 && set arch x86_64 || set arch i386
 iseq ${buildarch} arm64 && set arch arm64 ||
 iseq ${arch} x86_64 && set arch_a amd64 || set arch_a ${arch}
+
+:skip_arch_detect
+isset ${ip} || dhcp || echo DHCP failed
 
 :menu
 clear os
