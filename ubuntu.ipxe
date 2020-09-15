@@ -3,11 +3,6 @@
 ### netboot.xyz-custom menu
 ###
 
-chain https://boot.netboot.xyz/boot.cfg
-
-cpuid --ext 29 && set arch x86_64 || set arch i386
-iseq ${buildarch} arm64 && set arch arm64 ||
-iseq ${arch} x86_64 && set arch_a amd64 || set arch_a ${arch}
 set ubuntu_version focal
 
 set mirrorcfg mirror/suite=${ubuntu_version}

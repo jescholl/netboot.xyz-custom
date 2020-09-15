@@ -3,13 +3,22 @@
 ### netboot.xyz-custom menu
 ###
 
-:custom
+chain https://boot.netboot.xyz/boot.cfg
+
+isset ${arch} && goto :menu
+cpuid --ext 29 && set arch x86_64 || set arch i386
+iseq ${buildarch} arm64 && set arch arm64 ||
+iseq ${arch} x86_64 && set arch_a amd64 || set arch_a ${arch}
+
+:menu
 clear os
+set space:hex 20:20
+set space ${space:string}
 menu OS
 item --gap Preseed OS
-item ubuntu Install ubuntu
+item ubuntu ${space} Install ubuntu
 item --gap Other
-item netboot_xyz chain netboot.xyz
+item netboot_xyz ${space} chain netboot.xyz
 choose --timeout 30000 --default ubuntu os || goto netbootxyz
 echo ${cls}
 
