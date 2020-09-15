@@ -15,10 +15,11 @@ set dir ${ubuntu_base_dir}/dists/${ubuntu_version}-updates/main/installer-${arch
 iseq ${ubuntu_version} focal && set dir ${ubuntu_base_dir}/dists/${ubuntu_version}/main/installer-${arch_a}/current/legacy-images/netboot/ ||
 
 set install_params auto=true priority=critical preseed/url=https://raw.githubusercontent.com/jescholl/netboot.xyz-custom/master/ubuntu.preseed
+set netcfg interface=eth0 net.ifnames=0 netcfg/dhcp_timeout=60
 
 set dir ${dir}ubuntu-installer/${arch_a}
 imgfree
-kernel ${ubuntu_mirror}/${dir}/linux ${install_params} ${mirrorcfg} -- quiet ${params} initrd=initrd.gz ${cmdline}
+kernel ${ubuntu_mirror}/${dir}/linux ${install_params} ${mirrorcfg} ${netcfg} -- quiet ${params} initrd=initrd.gz ${cmdline}
 initrd ${ubuntu_mirror}/${dir}/initrd.gz
 echo
 echo MD5sums:
