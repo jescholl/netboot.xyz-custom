@@ -249,6 +249,7 @@ d-i partman-basicfilesystems/no_swap boolean false
 d-i partman-auto/expert_recipe string                         \
       mine ::                                                 \
               10240 10241 51200 ext4                          \
+                      $primary{ } $bootable{ }                \
                       method{ format } format{ }              \
                       use_filesystem{ } filesystem{ ext4 }    \
                       mountpoint{ / }                         \
