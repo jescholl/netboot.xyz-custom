@@ -247,6 +247,8 @@ d-i partman-swapfile/size string 0
 #                      method{ swap } format{ }                \
 #              .
 
+partman-basicfilesystems partman-basicfilesystems/no_mount_point boolean false
+
 d-i partman-auto/expert_recipe string                         \
       mine ::                                                 \
               10240 10241 51200 ext4                          \
