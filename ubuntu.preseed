@@ -224,6 +224,8 @@ d-i partman-auto/choose_recipe select mine
 # just point at it.
 #d-i partman-auto/expert_recipe_file string /hd-media/recipe
 
+d-i partman-basicfilesystems/no_swap boolean false
+
 # If not, you can put an entire recipe into the preconfiguration file in one
 # (logical) line. This example creates a small /boot partition, suitable
 # swap, and uses the rest of the space for the root partition:
