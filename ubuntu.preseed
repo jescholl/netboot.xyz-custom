@@ -257,6 +257,7 @@ d-i partman-auto/expert_recipe string                         \
               .                                               \
               0 0 -1 ext4                                     \
                       method{ format } format{ }              \
+                      use_filesystem{ } filesystem{ ext4 }    \
               .                                               \
 
 # If you just want to change the default filesystem from ext3 to something
