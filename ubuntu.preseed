@@ -253,6 +253,9 @@ d-i partman-auto/expert_recipe string                         \
                       use_filesystem{ } filesystem{ ext4 }    \
                       mountpoint{ / }                         \
               .                                               \
+              0 0 -1 ext4                                     \
+                      method{ format } format{ }              \
+              .                                               \
 
 # If you just want to change the default filesystem from ext3 to something
 # else, you can do that without providing a full recipe.
