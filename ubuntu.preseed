@@ -225,6 +225,7 @@ d-i partman-auto/choose_recipe select mine
 #d-i partman-auto/expert_recipe_file string /hd-media/recipe
 
 d-i partman-basicfilesystems/no_swap boolean false
+d-i partman-swapfile/size string 0
 
 # If not, you can put an entire recipe into the preconfiguration file in one
 # (logical) line. This example creates a small /boot partition, suitable
