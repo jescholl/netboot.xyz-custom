@@ -246,7 +246,7 @@ d-i partman-auto/choose_recipe select mine
 
 d-i partman-auto/expert_recipe string                         \
       mine ::                                                 \
-              20480 20580 102400 ext4                         \
+              10240 10241 51200 ext4                          \
                       method{ format } format{ }              \
                       use_filesystem{ } filesystem{ ext4 }    \
                       mountpoint{ / }                         \
@@ -492,8 +492,8 @@ d-i finish-install/reboot_in_progress note
 # This command is run immediately before the partitioner starts. It may be
 # useful to apply dynamic partitioner preseeding that depends on the state
 # of the disks (which may not be visible when preseed/early_command runs).
-#d-i partman/early_command \
-#       string debconf-set partman-auto/disk "$(list-devices disk | head -n1)"
+d-i partman/early_command \
+       string debconf-set partman-auto/disk "$(list-devices disk | head -n1)"
 # This command is run just before the install finishes, but when there is
 # still a usable /target directory. You can chroot to /target and use it
 # directly, or use the apt-install and in-target commands to easily install
