@@ -249,18 +249,28 @@ d-i partman-swapfile/size string 0
 
 partman-basicfilesystems partman-basicfilesystems/no_mount_point boolean false
 
+# Old portworx recipe
+#d-i partman-auto/expert_recipe string                         \
+#      mine ::                                                 \
+#              10240 10241 51200 ext4                          \
+#                      $primary{ } $bootable{ }                \
+#                      method{ format } format{ }              \
+#                      use_filesystem{ } filesystem{ ext4 }    \
+#                      mountpoint{ / }                         \
+#              .                                               \
+#              0 0 -1 ext4                                     \
+#                      $primary{ }                             \
+#                      method{ format } format{ }              \
+#                      use_filesystem{ } filesystem{ ext4 }    \
+#              .                                               \
+
 d-i partman-auto/expert_recipe string                         \
       mine ::                                                 \
-              10240 10241 51200 ext4                          \
+              0 0 -1 ext4                                     \
                       $primary{ } $bootable{ }                \
                       method{ format } format{ }              \
                       use_filesystem{ } filesystem{ ext4 }    \
                       mountpoint{ / }                         \
-              .                                               \
-              0 0 -1 ext4                                     \
-                      $primary{ }                             \
-                      method{ format } format{ }              \
-                      use_filesystem{ } filesystem{ ext4 }    \
               .                                               \
 
 # If you just want to change the default filesystem from ext3 to something
@@ -287,7 +297,7 @@ d-i partman/confirm_nooverwrite boolean true
 # so this will only work if the disks are the same size.
 #d-i partman-auto/disk string /dev/sda /dev/sdb
 
-# Next you need to specify the physical partitions that will be used. 
+# Next you need to specify the physical partitions that will be used.
 #d-i partman-auto/expert_recipe string \
 #      multiraid ::                                         \
 #              1000 5000 4000 raid                          \
@@ -341,7 +351,7 @@ d-i partman/confirm_nooverwrite boolean true
 # specify a path for the installer to retrieve the filesystem image that will
 # be deployed to disk and used as a base system for the installation.
 #d-i live-installer/net-image string /install/filesystem.squashfs
- 
+
 # Configure APT to not install recommended packages by default. Use of this
 # option can result in an incomplete system and should only be used by very
 # experienced users.
