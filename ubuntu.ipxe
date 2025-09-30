@@ -3,7 +3,7 @@
 ### netboot.xyz-custom menu
 ###
 
-set ubuntu_version focal
+set ubuntu_version plucky
 
 set mirrorcfg mirror/suite=${ubuntu_version}
 set dir ${ubuntu_base_dir}/dists/${ubuntu_version}-updates/main/installer-${arch_a}/current/images/netboot/
