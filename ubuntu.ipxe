@@ -2,6 +2,7 @@
 ###
 ### netboot.xyz-custom menu
 ###
+set sigs_enabled false
 
 set ubuntu_version plucky
 
